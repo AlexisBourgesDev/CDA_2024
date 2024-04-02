@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// Annotation @Service -> Définir une classe qui gère les traitements entre un controller et un repository
 @Service
 public class BookService {
     private BookRepository bookRepository;

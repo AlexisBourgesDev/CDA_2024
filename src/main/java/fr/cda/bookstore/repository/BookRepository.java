@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+// Annotation @Repository -> Définir une classe contenant des accès aux données
 @Repository
 public class BookRepository {
     private List<Book> books;
