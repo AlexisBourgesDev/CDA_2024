@@ -8,7 +8,7 @@
 - Vérifier si un livre est dispo 
 - Vérifier si un livre est indispo
 - On peut ajouter/retirer un exemplaire d'un livre 
-- On peut rechercher 1 livre dans 1 bibliothèque
+- On peut rechercher 1 livre dans 1 bibliothèque par son titre 
 - On peut connaitre le nombre d'exemplaires pour 1 livre
 
 ### 02/04 12h
