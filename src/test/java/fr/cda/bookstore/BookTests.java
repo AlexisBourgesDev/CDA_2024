@@ -22,7 +22,20 @@ class BookTests {
 		Bibliotheque biblio = new Bibliotheque();
 		Book book = new Book("L1", 2);
 
+		biblio.ajoutNouveauLivre(book, 0);
+		Assertions.assertFalse(biblio.isDispo(book));
 		biblio.ajoutNouveauLivre(book, 2);
-		biblio.isDispo(book);
+		Assertions.assertTrue(biblio.isDispo(book));
 	}
+
+	@Test
+	void livreIsIndispo(){
+		Bibliotheque biblio = new Bibliotheque();
+		Book book = new Book("L2", 2);
+
+		biblio.ajoutNouveauLivre(book, 0);
+		Assertions.assertFalse(biblio.isDispo(book));
+	}
+
+
 }
