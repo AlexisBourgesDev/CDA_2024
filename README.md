@@ -11,6 +11,14 @@
 - On peut rechercher 1 livre dans 1 bibliothèque
 - On peut connaitre le nombre d'exemplaires pour 1 livre
 
+### 02/04 12h
+
+- Ajout d'un auteur à un livre
+- Rechercher tous les livres d'un auteur
+- Ajout d'un système de réservation : 
+  - Créer un client (nom, prenom)
+  - Connaitre les livres réservées par un client
+
 ## Points techniques 
 
 ### 02/04 11h
