@@ -1,4 +1,4 @@
-package fr.cda.bookstore.metier;
+package fr.cda.bookstore.simple.metier;
 
 import java.util.Objects;
 

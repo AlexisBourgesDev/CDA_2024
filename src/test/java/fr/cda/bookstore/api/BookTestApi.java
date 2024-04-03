@@ -1,7 +1,7 @@
 package fr.cda.bookstore.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import fr.cda.bookstore.metier.Book;
+import fr.cda.bookstore.simple.metier.Book;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

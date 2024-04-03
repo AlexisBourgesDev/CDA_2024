@@ -1,7 +1,6 @@
-package fr.cda.bookstore.metier;
+package fr.cda.bookstore.simple.metier;
 
 import javax.management.InstanceNotFoundException;
-import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
