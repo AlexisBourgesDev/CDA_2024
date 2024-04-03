@@ -14,17 +14,22 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
+// Permet au MockMvc de se configurer pour attaquer notre API
 @AutoConfigureMockMvc
 public class BookTestApi {
+    // Classe pour simuler des appels REST
     @Autowired
     private MockMvc mockMvc;
+    // Classe de sérialisation / désérialisation
     @Autowired
     private ObjectMapper objectMapper;
 
     @Test
     public void testGetAllBooks() throws Exception {
+        // Création de notre requête au moyen de la classe MockMvcRequestBuilders
+        // Utilisation de la méthode correspondant au verbe HTTP voulu, qui prend en paramètre l'URL du point d'API
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/api/books");
-
+        // Test du status de la réponse, ici 200 (isOk())
         ResultMatcher resultStatus = MockMvcResultMatchers.status().isOk();
 
         mockMvc.perform(requestBuilder).andExpect(resultStatus);
@@ -38,6 +43,7 @@ public class BookTestApi {
 
         String bodyContent = mockMvc.perform(requestBuilder).andExpect(resultStatus).andReturn().getResponse().getContentAsString();
 
+        // Désérialisation du contenu de la réponse en Book
         Book book = objectMapper.readValue(bodyContent, Book.class);
 
         Assertions.assertEquals("L1", book.getTitre());
