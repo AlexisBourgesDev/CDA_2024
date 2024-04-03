@@ -1,11 +1,9 @@
 package fr.cda.bookstore.controller;
 
+import fr.cda.bookstore.entities.BookEntity;
 import fr.cda.bookstore.metier.Book;
 import fr.cda.bookstore.service.BookService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.management.InstanceNotFoundException;
 import java.util.HashMap;
@@ -31,6 +29,12 @@ public class BookController {
     @GetMapping("")
     public List<Book> getAllBooks(){
         return bookService.getAllBooks();
+    }
+
+    // Annotation @GetMapping -> Définir un point d'API GET (en paramètre, le chemin de la ressource, A CONCATENER AVEC LE REQUEST MAPPING)
+    @GetMapping("/{id}")
+    public BookEntity getAllBooks(@PathVariable("id") Integer id) throws InstanceNotFoundException {
+        return bookService.getById(id);
     }
 
     @GetMapping("/search")

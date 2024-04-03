@@ -1,5 +1,7 @@
 package fr.cda.bookstore.service;
 
+import fr.cda.bookstore.entities.BookEntity;
+import fr.cda.bookstore.entities.repositories.BookSqlRepository.BookSqlRepository;
 import fr.cda.bookstore.metier.Book;
 import fr.cda.bookstore.repository.BibliothequeRepository;
 import fr.cda.bookstore.repository.BookRepository;
@@ -12,9 +14,11 @@ import java.util.List;
 @Service
 public class BookService {
     private BibliothequeRepository bibliothequeRepository;
+    private BookSqlRepository bookSqlRepository;
 
-    public BookService(BibliothequeRepository bibliothequeRepository) {
+    public BookService(BibliothequeRepository bibliothequeRepository, BookSqlRepository bookSqlRepository) {
         this.bibliothequeRepository = bibliothequeRepository;
+        this.bookSqlRepository = bookSqlRepository;
     }
 
     public List<Book> getAllBooks(){
@@ -23,5 +27,9 @@ public class BookService {
 
     public Book getBookByTitle(String titre) throws InstanceNotFoundException {
         return bibliothequeRepository.getBookByTitle(titre);
+    }
+
+    public BookEntity getById(Integer id) throws InstanceNotFoundException {
+        return bookSqlRepository.findById(id).orElseThrow(InstanceNotFoundException::new);
     }
 }
