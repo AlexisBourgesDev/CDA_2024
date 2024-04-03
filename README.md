@@ -38,3 +38,5 @@ API REST -> https://www.canva.com/design/DAFgSJZRKKk/hZ6cQS6EMy0cy2eUDnzhSg/view
 Serialisation/Deserialisation + données au back -> https://www.canva.com/design/DAFgXauYqxg/AYkHEBURr9rjVlt15buezA/view?utm_content=DAFgXauYqxg&utm_campaign=designshare&utm_medium=link&utm_source=editor
 
 Génération de requêtes via nommage de méthode : https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
+
+Bonnes pratiques API REST : https://guide-api-rest.marmicode.fr/conventions-et-bonnes-pratiques/nommage
