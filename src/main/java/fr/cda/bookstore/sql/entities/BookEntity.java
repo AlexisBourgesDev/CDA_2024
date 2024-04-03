@@ -21,6 +21,13 @@ public class BookEntity {
     @Column(name = "nb_pages")
     private Integer nbPages;
 
+    @ManyToOne
+    @JoinColumn(name = "id_auteur", updatable = false, insertable = false)
+    private AuteurEntity auteur;
+
+    @Column(name = "id_auteur")
+    private Integer auteurId;
+
     public BookEntity() {
     }
 
