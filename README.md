@@ -25,6 +25,10 @@
 
 JUnit
 
+### 03/04 9h
+
+RestControllerAdvice -> Gestion des erreurs
+
 ## Ressources 
 
 ### 02/04 16h
