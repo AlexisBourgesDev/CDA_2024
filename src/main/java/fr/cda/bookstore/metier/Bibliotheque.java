@@ -3,6 +3,7 @@ package fr.cda.bookstore.metier;
 import javax.management.InstanceNotFoundException;
 import javax.management.openmbean.KeyAlreadyExistsException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -50,5 +51,9 @@ public class Bibliotheque {
 
     public Integer getNbExemplairesForBook(Book b) throws InstanceNotFoundException {
         return Optional.ofNullable(this.stock.get(b)).orElseThrow(InstanceNotFoundException::new);
+    }
+
+    public List<Book> getAllBooksDispo(){
+        return this.stock.entrySet().stream().filter(book -> book.getValue() > 0).map(Map.Entry::getKey).toList();
     }
 }

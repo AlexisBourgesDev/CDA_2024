@@ -19,4 +19,8 @@ public class BookRepository {
     public List<Book> getAllBooks(){
         return books;
     }
+
+    public Book getBookByTitle(String titre) {
+        return books.stream().filter(book -> book.getTitre().equals(titre)).findFirst().orElse(null);
+    }
 }

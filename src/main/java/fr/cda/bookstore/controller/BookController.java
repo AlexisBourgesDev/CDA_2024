@@ -4,10 +4,13 @@ import fr.cda.bookstore.metier.Book;
 import fr.cda.bookstore.service.BookService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.management.InstanceNotFoundException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -28,5 +31,10 @@ public class BookController {
     @GetMapping("")
     public List<Book> getAllBooks(){
         return bookService.getAllBooks();
+    }
+
+    @GetMapping("/search")
+    public Book getBookByTitle(@RequestParam("titre") String titre) throws InstanceNotFoundException {
+        return bookService.getBookByTitle(titre);
     }
 }

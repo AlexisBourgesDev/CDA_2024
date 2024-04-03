@@ -43,4 +43,9 @@ public class Book {
     public int hashCode() {
         return Objects.hash(nbPages, titre);
     }
+
+    @Override
+    public String toString() {
+        return titre;
+    }
 }
