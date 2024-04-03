@@ -21,6 +21,8 @@ public class BookTestApi {
     @Autowired
     private MockMvc mockMvc;
     // Classe de sérialisation / désérialisation
+    // writeValueAsString -> Classe JAVA en entrée -> Sortie JSON String
+    // readValue -> Inverse
     @Autowired
     private ObjectMapper objectMapper;
 
@@ -41,12 +43,16 @@ public class BookTestApi {
 
         ResultMatcher resultStatus = MockMvcResultMatchers.status().isOk();
 
-        String bodyContent = mockMvc.perform(requestBuilder).andExpect(resultStatus).andReturn().getResponse().getContentAsString();
+        String bodyContent = mockMvc.perform(requestBuilder).andExpect(resultStatus)
+                .andReturn()
+                .getResponse()
+                .getContentAsString();
 
         // Désérialisation du contenu de la réponse en Book
         Book book = objectMapper.readValue(bodyContent, Book.class);
 
         Assertions.assertEquals("L1", book.getTitre());
+        Assertions.assertEquals(new Book("L1", 2), book);
     }
 
 }
