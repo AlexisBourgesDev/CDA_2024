@@ -14,5 +14,5 @@
     - Connaitre les livres réservées par un client
     - Faire payer la reservation en connaissant date d'emprunt et date de rendu 
     - 1€/j jusqu'a 7 jours puis taxe forfaitaire de 5€ + majoration de 50c par jour  
+    - Appliquer une taxe forfaitaire si l'état du livre s'est dégradé au moment du rendu
     - Connaitre recette de la bibliotheque sur dernier.e jour/semaine/mois
-
