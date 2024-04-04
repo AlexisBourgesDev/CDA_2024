@@ -33,8 +33,14 @@ public class BookController {
 
     @GetMapping("/search")
     public Book getBookByTitle(
+            // @Valid -> Permet de demander à Spring d'appliquer les validations qui suivent pour ce champ, à appliquer sur chaque champ
+            // Si une erreur dans une ou plusieurs validations, lève une exception géré dans ExceptionController::handleHandlerMethodValidationException
             @Valid
+            // @Size -> Permet de définir une taille min/max de la chaine avec un message custom pour améliorer la lisibilité
+            // On peut injecter les paramètres de l'annotation dans le message en entourant d'accolades (ex: {min})
             @Size(min = 3, message = "Le titre doit faire minimum {min} caractères")
+            // Par défaut, chaque @RequestParam a un paramètre required = true
+            // Si oublié lors de l'appel, il lève une exception géré dans ExceptionController::handleMissingServletRequestParameter
             @RequestParam("titre") String titre
     ) throws InstanceNotFoundException {
         return bookService.getBookByTitle(titre);
