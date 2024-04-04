@@ -1,8 +1,12 @@
 package fr.cda.bookstore.simple.controller;
 
-import fr.cda.bookstore.sql.entities.BookEntity;
 import fr.cda.bookstore.simple.metier.Book;
 import fr.cda.bookstore.simple.service.BookService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.management.InstanceNotFoundException;
@@ -28,7 +32,11 @@ public class BookController {
     }
 
     @GetMapping("/search")
-    public Book getBookByTitle(@RequestParam("titre") String titre) throws InstanceNotFoundException {
+    public Book getBookByTitle(
+            @Valid
+            @Size(min = 3, message = "Le titre doit faire minimum {min} caractères")
+            @RequestParam("titre") String titre
+    ) throws InstanceNotFoundException {
         return bookService.getBookByTitle(titre);
     }
 }

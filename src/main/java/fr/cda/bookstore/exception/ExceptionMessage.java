@@ -1,16 +1,28 @@
 package fr.cda.bookstore.exception;
 
-import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ExceptionMessage {
     private LocalDateTime date;
     private String request;
     private String message;
+    private List<String> details;
 
     public ExceptionMessage(LocalDateTime date, String request, String message) {
         this.date = date;
         this.request = request;
         this.message = message;
+    }
+
+    public ExceptionMessage(LocalDateTime date, String request, String message, List<String> details) {
+        this.date = date;
+        this.request = request;
+        this.message = message;
+        this.details = details;
     }
 
     public LocalDateTime getDate() {
@@ -35,5 +47,13 @@ public class ExceptionMessage {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public List<String> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<String> details) {
+        this.details = details;
     }
 }

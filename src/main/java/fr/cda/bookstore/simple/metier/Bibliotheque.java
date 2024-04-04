@@ -11,6 +11,7 @@ public class Bibliotheque {
 
     public Bibliotheque() {
         this.stock = new HashMap<>();
+        this.stock.put(new Book("Harry potter", 2), 5);
     }
 
 
