@@ -36,6 +36,7 @@ RestControllerAdvice -> Gestion des erreurs
 Introduction SPRING -> https://www.canva.com/design/DAFgRzKsyJw/ImEewCgIeNqOcvtqw8XUPQ/view?utm_content=DAFgRzKsyJw&utm_campaign=designshare&utm_medium=link&utm_source=editor
 API REST -> https://www.canva.com/design/DAFgSJZRKKk/hZ6cQS6EMy0cy2eUDnzhSg/view?utm_content=DAFgSJZRKKk&utm_campaign=designshare&utm_medium=link&utm_source=editor
 Serialisation/Deserialisation + données au back -> https://www.canva.com/design/DAFgXauYqxg/AYkHEBURr9rjVlt15buezA/view?utm_content=DAFgXauYqxg&utm_campaign=designshare&utm_medium=link&utm_source=editor
+Révisions -> https://www.canva.com/design/DAFgrnpzm58/sMBHo7_6Qf41IgbHOvBAcw/view?utm_content=DAFgrnpzm58&utm_campaign=designshare&utm_medium=link&utm_source=editor
 
 Génération de requêtes via nommage de méthode : https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation
 
