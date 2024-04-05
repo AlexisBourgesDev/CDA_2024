@@ -45,4 +45,12 @@ public class BookController {
     ) throws InstanceNotFoundException {
         return bookService.getBookByTitle(titre);
     }
+
+    @PostMapping("")
+    public void postbook(
+            @Valid
+            @RequestBody Book book
+    ) throws InstanceNotFoundException {
+
+    }
 }

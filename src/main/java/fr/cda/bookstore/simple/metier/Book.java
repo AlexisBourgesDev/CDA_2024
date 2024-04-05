@@ -1,9 +1,15 @@
 package fr.cda.bookstore.simple.metier;
 
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+
 import java.util.Objects;
 
 public class Book {
+    @Positive(message = "Le nombre de pages du livre doit être un entier positif")
     private int nbPages;
+    @NotBlank(message = "Le nom du livre ne doit pas être vide")
     private String titre;
 
     public Book(int nbPages) {

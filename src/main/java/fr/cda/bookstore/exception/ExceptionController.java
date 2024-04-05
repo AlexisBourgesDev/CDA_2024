@@ -7,6 +7,9 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.method.MethodValidationException;
 import org.springframework.validation.method.ParameterValidationResult;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -38,6 +41,8 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
         return new ExceptionMessage(LocalDateTime.now(), request.getRequestURI(), "Instance not found");
     }
 
+
+
     // Appelé si paramètre GET manquant lors d'un appel à un point d'API (annoté @RequestParam sans required = false)
     // Par défaut, mis à required = true
     @Override
@@ -50,5 +55,21 @@ public class ExceptionController extends ResponseEntityExceptionHandler {
     protected ResponseEntity<Object> handleHandlerMethodValidationException(HandlerMethodValidationException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         List<String> fieldsError = ex.getAllValidationResults().stream().map(ParameterValidationResult::getResolvableErrors).flatMap(List::stream).map(MessageSourceResolvable::getDefaultMessage).toList();
         return ResponseEntity.badRequest().body(new ExceptionMessage(LocalDateTime.now(), request.getContextPath(), "Données invalides", fieldsError));
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleMethodValidationException(MethodValidationException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+        return ResponseEntity.badRequest().body(new ExceptionMessage(LocalDateTime.now(), request.getContextPath(), "Données manquantes", List.of(ex.getMethod().getName())));
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        List<String> errors = ex.getBindingResult().getAllErrors().stream().map(ObjectError::getDefaultMessage).toList();
+        return ResponseEntity.badRequest().body(new ExceptionMessage(LocalDateTime.now(), request.getContextPath(), "Données invalides", errors));
+    }
+
+    @Override
+    protected ResponseEntity<Object> handleHttpMessageNotReadable(HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        return super.handleHttpMessageNotReadable(ex, headers, status, request);
     }
 }
