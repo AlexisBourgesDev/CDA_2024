@@ -31,6 +31,11 @@ public class BookEntity {
     public BookEntity() {
     }
 
+    public BookEntity(String l1, int i) {
+        titre = l1;
+        nbPages = i;
+    }
+
     public Integer getId() {
         return id;
     }

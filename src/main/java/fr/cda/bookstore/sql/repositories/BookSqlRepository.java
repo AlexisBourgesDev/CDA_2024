@@ -2,6 +2,7 @@ package fr.cda.bookstore.sql.repositories;
 
 import fr.cda.bookstore.sql.entities.BookEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 

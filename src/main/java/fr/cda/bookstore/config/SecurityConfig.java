@@ -45,7 +45,8 @@ public class SecurityConfig {
                                         "/swagger-ui.html**",
                                         "/webjars/**",
                                         "favicon.ico",
-                                        "/**"
+                                        "/**",
+                                        "/graphiql"
                                         ).permitAll()
                                 .anyRequest().authenticated()
                                 .and().addFilterBefore(new JwtExceptionHandlerFilter(), JWTAuthorizationFilter.class)
